@@ -1,0 +1,17 @@
+{
+  "app_bytes": 125952,
+  "worker_bytes": 94146,
+  "wasm_bytes": 121145,
+  "html_bytes": 129948,
+  "wasm_sha256": "ca36b18995d46c242236da7bd18bc6e0a99779fccfa1fdf171a8251d056a6247",
+  "app_has_static_import_export": false,
+  "worker_has_global_factory": true,
+  "worker_has_importScripts_call": false,
+  "runtime_files": [
+    "index.html",
+    "preview.jpg",
+    "project.json",
+    "wallpaper_config.annotated.en.jsonc",
+    "wallpaper_config.json"
+  ]
+}

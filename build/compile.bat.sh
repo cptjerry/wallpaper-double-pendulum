@@ -1,0 +1,1 @@
+emcc -O3 midpoint_combined_ld.c mcld_wallpaper_bridge.c --no-entry -o mcld_solver.js -sWASM=1 -sMODULARIZE=1 -sEXPORT_NAME=createMcldModule -sENVIRONMENT=web,worker -sALLOW_MEMORY_GROWTH=1 -sFILESYSTEM=0 -sEXPORTED_RUNTIME_METHODS="['cwrap']"

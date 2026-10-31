@@ -1,0 +1,151 @@
+{
+  // Reference file only. Keep wallpaper_config.json as plain JSON.
+
+  // Numerical stepper implementation.
+  // Use hamilton_left unless you are intentionally testing another mode.
+  // Accepted: "lagrange", "hamilton_left", "hamilton_right".
+  "solverMode": "hamilton_left",
+
+  // Startup formulation.
+  // pair  = initialize from previous + current pose.
+  // left  = initialize from left half-step momentum.
+  // right = initialize from right half-step momentum.
+  // Accepted: "pair", "left", "right".
+  "initMode": "left",
+
+  // Simulation time step in seconds.
+  "simDt": 0.004166666666666667,
+
+  // Maximum nonlinear iterations per step.
+  "maxIter": 6,
+
+  // Nonlinear solve tolerance. Smaller is stricter.
+  "tol": 1.5e-11,
+
+  // Internal predictor / secant coefficient.
+  "beta": 1.0,
+
+  "params": {
+    // Rod 1 total length.
+    "l1": 0.5,
+    // Rod 2 total length.
+    "l2": 1.0,
+
+    // Rod 1 mass.
+    "m1": 3.0,
+    // Rod 2 mass.
+    "m2": 1.0,
+
+    // Distance from rod 1 root to its center of mass.
+    "lc1": 0.25,
+    // Distance from rod 2 joint to its center of mass.
+    "lc2": 0.5,
+
+    // Rod 1 transverse inertia.
+    "Iperp1": 0.04,
+    // Rod 2 transverse inertia.
+    "Iperp2": 0.05,
+
+    // Rod 1 spin-axis inertia.
+    "Ispin1": 0.003,
+    // Rod 2 spin-axis inertia.
+    "Ispin2": 0.001,
+
+    // Gravity magnitude.
+    "g": 9.81
+  },
+
+  "rods": {
+    "rod1": {
+      // Visual rod-shape mode.
+      // auto   = derive the visible rod shape from the physical parameters.
+      // manual = provide the display shape yourself.
+      "mode": "auto"
+
+      // Manual example:
+      // "mode": "manual",
+      // "shape": {
+      //   "a": 0.10,
+      //   "b": 0.10,
+      //   "c": 0.30,
+      //   "R": 0.04
+      // }
+      // In manual mode, a, b, and R are required. c is optional.
+    },
+    "rod2": {
+      "mode": "auto"
+    }
+  },
+
+  "angles": {
+    // Unit for the angle triples below.
+    // Accepted: "deg", "rad".
+    "unit": "rad",
+
+    "current": {
+      // Current pose, converted internally to yCur.
+      // Array order: [yaw, pitch, spin].
+      // yaw   = heading in the XY plane
+      // pitch = vertical tilt
+      // spin  = twist around the rod axis
+      "rod1": [0.0, 0.0, 0.0],
+      "rod2": [-1.5707963267948966, 0.0, 0.0]
+      // Named-field form is also accepted:
+      // "rod1": { "yaw": 0.0, "pitch": 0.0, "spin": 0.0 }
+    },
+
+    "previous": {
+      // Previous pose, converted internally to yPrev.
+      // This matters mainly when initMode = "pair".
+      "rod1": [0.0, 1.5707963267948966, 0.0],
+      "rod2": [0.0, 1.5707963267948966, 0.0]
+    }
+  },
+
+  // Optional quaternion fallback.
+  // Use this when you already have the exact quaternions and do not want the
+  // loader to build them from yaw / pitch / spin.
+  // Each 8-entry array is:
+  // [rod1.x, rod1.y, rod1.z, rod1.w, rod2.x, rod2.y, rod2.z, rod2.w]
+  // Angles still have priority. The quaternion block is only used when the
+  // corresponding angles.current or angles.previous entry is omitted.
+  // "quaternion": {
+  //   "current": [0, 0, 0, 1, 0, 0, 0, 1],
+  //   "previous": [0, 0, 0, 1, 0, 0, 0, 1]
+  // },
+
+  "angularVelocity": {
+    // Optional startup angular velocity for left / right initialization.
+    // If this block is present, the project derives generalized half-step
+    // momentum from the current pose plus angular velocity.
+    // Accepted units: "rad/s", "deg/s".
+    // Accepted frame: "body".
+    "unit": "deg/s",
+    "frame": "body",
+    "current": {
+      // Body-frame angular velocity vectors.
+      // Array order: [wx, wy, wz].
+      "rod1": [0.0, 0.0, 0.0],
+      "rod2": [0.0, 0.0, 0.0]
+    }
+  },
+
+  // Optional fallback half-step momenta.
+  // Usually omit this block when angularVelocity is present.
+  // Add it only when you want to specify startup momentum directly.
+  // left  = left half-step generalized momentum
+  // right = right half-step generalized momentum
+  // "momenta": {
+  //   "left": [0, 0, 0, 0, 0, 0],
+  //   "right": [0, 0, 0, 0, 0, 0]
+  // },
+
+  "balls": {
+    // Display-only sphere radius at the root.
+    "rootRadius": 0.018,
+    // Display-only sphere radius at the joint.
+    "jointRadius": 0.022,
+    // Display-only sphere radius at the tip.
+    "tipRadius": 0.02
+  }
+}

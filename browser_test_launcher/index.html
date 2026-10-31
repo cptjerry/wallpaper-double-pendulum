@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Double Pendulum · Browser Preview</title>
+<style>
+:root{color-scheme:dark;font:14px/1.5 system-ui,sans-serif;background:#10161e;color:#dce5ef}*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;display:grid;grid-template-columns:350px 1fr;height:100vh}aside{padding:20px;overflow:auto;border-right:1px solid #303b49;background:#131c27}h1{font-size:21px;margin:0 0 5px}h2{font-size:14px;margin:0}p{color:#a8b6c8;font-size:12px;margin:8px 0 14px}button,input,select,textarea{font:inherit;background:#202d3e;color:inherit;border:1px solid #435268;border-radius:6px;padding:6px}button{cursor:pointer}button:hover{background:#354b65}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #7bc9e8;outline-offset:2px}.buttons{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}nav{display:flex;gap:6px;margin:18px 0}nav button{flex:1}nav button[aria-selected=true]{background:#234b63;border-color:#76bfd9}label.row{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:13px 0}label.row>span{flex:1;font-size:12px}.slider-control{display:flex;gap:7px;align-items:center;width:175px}.slider-control input[type=range]{min-width:0;width:95px;padding:0;accent-color:#78c5d9}.slider-control input[type=number]{width:72px}input[type=number]{width:90px}select{max-width:175px;font-size:12px}input[type=color]{width:65px;height:32px;padding:3px}input[type=checkbox]{accent-color:#78c5d9;width:18px;height:18px}.setting-group{padding:0 0 10px;margin:12px 0;border-top:1px solid #303d4c}.setting-group summary{font-weight:600;padding:12px 0;cursor:pointer}.group-reset{font-size:11px;float:right;padding:2px 6px;margin-left:6px}.muted{font-size:11px;color:#91a3b9}main{display:grid;grid-template-rows:auto minmax(240px,1fr) 180px;min-width:0}.toolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 16px;border-bottom:1px solid #303b49}.toolbar span{font-size:12px;color:#a8b6c8}iframe{width:100%;height:100%;border:0;background:#050608}#logPanel{padding:10px 16px;overflow:auto;border-top:1px solid #303b49}pre{white-space:pre-wrap;font:12px/1.5 monospace;margin:8px 0}.status{color:#8edac3}summary{cursor:pointer;padding:8px 0}#raw{width:100%;min-height:150px;background:#101923;color:#dce5ef}body.sidebar-hidden{grid-template-columns:1fr}body.sidebar-hidden aside{display:none}body.full aside,body.full #logPanel,body.full .toolbar{display:none}body.full{display:block}body.full main{height:100vh;display:block}body.full iframe{height:100%}#exitFull{display:none;position:fixed;right:14px;top:14px;z-index:20;opacity:.8}body.full #exitFull{display:block}@media(max-width:780px){body{grid-template-columns:290px 1fr}aside{padding:12px}.slider-control{width:145px}.slider-control input[type=range]{width:65px}}
+</style></head><body>
+<aside><h1>Double Pendulum</h1><p>Browser preview · Wallpaper Engine property controls</p>
+<nav role="tablist" aria-label="Settings panels"><button id="settingsTab" role="tab" aria-selected="true" aria-controls="settingsPanel">Wallpaper settings</button><button id="testsTab" role="tab" aria-selected="false" aria-controls="testsPanel">Test tools</button></nav>
+<div id="settingsPanel" role="tabpanel" aria-labelledby="settingsTab">
+<p>Changes apply immediately. Controls and defaults come from the wallpaper’s <code>project.json</code>.</p>
+<details class="setting-group" open><summary>Application</summary><label class="row"><span>FPS limit (0 = unlimited)</span><input id="fps" type="number" min="0" max="240" value="60"></label></details>
+<div id="controls"></div>
+<div class="buttons"><button id="reset">Reset wallpaper properties</button></div>
+<p>Preview starts with the HUD visible. Reset restores the original project defaults, including the hidden HUD.</p>
+</div>
+<div id="testsPanel" role="tabpanel" aria-labelledby="testsTab" hidden>
+<div class="buttons"><button id="reload">Reload with settings</button><button id="cached">Start from cache only</button></div>
+<details class="setting-group" open><summary>Camera checks</summary><div class="buttons"><button id="top">Top pole</button><button id="bottom">Bottom pole</button><button id="mouse">Mouse control</button></div></details>
+<label class="row"><span>Initial callback delay (ms)</span><input id="delay" type="number" min="0" max="30000" value="0"></label>
+<p>Set the delay, then reload. Cache-only startup sends no initial properties.</p>
+<details class="setting-group"><summary>Browser storage</summary><p>Only affects this server origin. Project files remain unchanged.</p><div class="buttons"><button id="clearSim">Clear simulation save</button><button id="clearProps">Clear WE property cache</button></div></details>
+<details class="setting-group"><summary>Raw user properties</summary><textarea id="raw" aria-label="User properties JSON"></textarea><button id="sendRaw">Send user properties</button></details>
+<div class="buttons"><button id="copy">Copy logs</button></div>
+<p>F12 opens the browser’s full console. These controls emulate WE callbacks; they do not emulate desktop window management or system audio.</p>
+</div>
+</aside>
+<main><div class="toolbar"><span>Live preview</span><div><button id="settingsToggle">Hide settings</button> <button id="full">Expand preview</button></div></div><iframe id="preview" title="Wallpaper preview" allow="autoplay; gamepad"></iframe><section id="logPanel"><div class="status" id="state">Preparing preview…</div><pre id="logs"></pre></section></main>
+<button id="exitFull">Exit preview (Esc)</button>
+<script src="./launcher.js"></script></body></html>

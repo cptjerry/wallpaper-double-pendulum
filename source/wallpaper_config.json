@@ -1,0 +1,53 @@
+{
+  "solverMode": "hamilton_left",
+  "initMode": "left",
+  "simDt": 0.004166666666666667,
+  "maxIter": 6,
+  "tol": 1.5e-11,
+  "beta": 1.0,
+  "params": {
+    "l1": 0.5,
+    "l2": 1.0,
+    "m1": 3.0,
+    "m2": 1.0,
+    "lc1": 0.25,
+    "lc2": 0.5,
+    "Iperp1": 0.04,
+    "Iperp2": 0.05,
+    "Ispin1": 0.003,
+    "Ispin2": 0.001,
+    "g": 9.81
+  },
+  "rods": {
+    "rod1": {
+      "mode": "auto"
+    },
+    "rod2": {
+      "mode": "auto"
+    }
+  },
+  "angles": {
+    "unit": "rad",
+    "current": {
+      "rod1": [0.0, 0.0, 0.0],
+      "rod2": [-1.5707963267948966, 0.0, 0.0]
+    },
+    "previous": {
+      "rod1": [0.0, 1.5707963267948966, 0.0],
+      "rod2": [0.0, 1.5707963267948966, 0.0]
+    }
+  },
+  "angularVelocity": {
+    "unit": "deg/s",
+    "frame": "body",
+    "current": {
+      "rod1": [0.0, 0.0, 0.0],
+      "rod2": [0.0, 0.0, 0.0]
+    }
+  },
+  "balls": {
+    "rootRadius": 0.018,
+    "jointRadius": 0.022,
+    "tipRadius": 0.02
+  }
+}

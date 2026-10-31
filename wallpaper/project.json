@@ -1,0 +1,308 @@
+{
+	"contentrating": "Everyone",
+	"file": "index.html",
+	"general": {
+		"properties": {
+			"playbackspeed": {
+				"fraction": true,
+				"index": 0,
+				"max": 12,
+				"min": 0,
+				"order": 100,
+				"precision": 3,
+				"step": 0.01,
+				"text": "Playback Speed",
+				"type": "slider",
+				"value": 0.5
+			},
+			"trailseconds": {
+				"fraction": true,
+				"index": 1,
+				"max": 20,
+				"min": 0,
+				"order": 101,
+				"precision": 2,
+				"step": 0.1,
+				"text": "Trail Duration",
+				"type": "slider",
+				"value": 7
+			},
+			"showshell": {
+				"index": 2,
+				"order": 102,
+				"text": "Show Shell",
+				"type": "bool",
+				"value": false
+			},
+			"hudposition": {
+				"index": 3,
+				"options": [
+					{
+						"label": "Hidden",
+						"value": 0
+					},
+					{
+						"label": "Top Left",
+						"value": 1
+					},
+					{
+						"label": "Top Right",
+						"value": 2
+					},
+					{
+						"label": "Bottom Left",
+						"value": 3
+					},
+					{
+						"label": "Bottom Right",
+						"value": 4
+					}
+				],
+				"order": 103,
+				"text": "HUD Position",
+				"type": "combo",
+				"value": 0
+			},
+			"hudscale": {
+				"condition": "hudposition.value != 0",
+				"fraction": true,
+				"index": 4,
+				"max": 2,
+				"min": 0.6,
+				"order": 104,
+				"precision": 2,
+				"step": 0.05,
+				"text": "HUD Size",
+				"type": "slider",
+				"value": 1
+			},
+			"persiststate": {
+				"index": 5,
+				"order": 105,
+				"text": "Restore Previous State",
+				"type": "bool",
+				"value": true
+			},
+			"size": {
+				"fraction": true,
+				"index": 6,
+				"max": 2.5,
+				"min": 0.4,
+				"order": 106,
+				"precision": 2,
+				"step": 0.01,
+				"text": "Size",
+				"type": "slider",
+				"value": 1
+			},
+			"screenoffsetx": {
+				"fraction": true,
+				"index": 7,
+				"max": 0.5,
+				"min": -0.5,
+				"order": 107,
+				"precision": 3,
+				"step": 0.01,
+				"text": "Screen Offset X",
+				"type": "slider",
+				"value": 0
+			},
+			"screenoffsety": {
+				"fraction": true,
+				"index": 8,
+				"max": 0.5,
+				"min": -0.5,
+				"order": 108,
+				"precision": 3,
+				"step": 0.01,
+				"text": "Screen Offset Y",
+				"type": "slider",
+				"value": 0
+			},
+			"controlmode": {
+				"index": 9,
+				"options": [
+					{
+						"label": "Mouse",
+						"value": 0
+					},
+					{
+						"label": "Joystick",
+						"value": 1
+					},
+					{
+						"label": "No Control",
+						"value": 2
+					}
+				],
+				"order": 109,
+				"text": "Camera Control Mode",
+				"type": "combo",
+				"value": 0
+			},
+			"controlpitch": {
+				"condition": "controlmode.value == 2",
+				"fraction": true,
+				"index": 10,
+				"max": 90,
+				"min": -90,
+				"order": 110,
+				"precision": 2,
+				"step": 0.1,
+				"text": "Pitch Angle",
+				"type": "slider",
+				"value": 15
+			},
+			"rotationspeed": {
+				"condition": "controlmode.value == 2",
+				"fraction": true,
+				"index": 11,
+				"max": 0.8,
+				"min": -0.8,
+				"order": 111,
+				"precision": 3,
+				"step": 0.01,
+				"text": "Rotation Speed",
+				"type": "slider",
+				"value": 0.25
+			},
+			"autotheme": {
+				"index": 12,
+				"order": 112,
+				"text": "Use Scheme Color Theme",
+				"type": "bool",
+				"value": true
+			},
+			"backgroundcolor": {
+				"condition": "autotheme.value == 0",
+				"index": 13,
+				"order": 113,
+				"text": "Background Color",
+				"type": "color",
+				"value": "0.03529411764705882 0.043137254901960784 0.050980392156862744"
+			},
+			"barcolor1": {
+				"condition": "autotheme.value == 0",
+				"index": 14,
+				"order": 114,
+				"text": "Bar Accent Color 1",
+				"type": "color",
+				"value": "0.7137254901960784 0.611764705882353 0.24313725490196078"
+			},
+			"barcolor2": {
+				"condition": "autotheme.value == 0",
+				"index": 15,
+				"order": 115,
+				"text": "Bar Accent Color 2",
+				"type": "color",
+				"value": "0.14901960784313725 0.2901960784313726 0.6352941176470588"
+			},
+			"rodcolor1": {
+				"condition": "autotheme.value == 0",
+				"index": 16,
+				"order": 116,
+				"text": "Rod Color 1",
+				"type": "color",
+				"value": "0.043137254901960784 0.043137254901960784 0.043137254901960784"
+			},
+			"rodcolor2": {
+				"condition": "autotheme.value == 0",
+				"index": 17,
+				"order": 117,
+				"text": "Rod Color 2",
+				"type": "color",
+				"value": "0.043137254901960784 0.043137254901960784 0.043137254901960784"
+			},
+			"ballcolorroot": {
+				"condition": "autotheme.value == 0",
+				"index": 18,
+				"order": 118,
+				"text": "Root Ball Color",
+				"type": "color",
+				"value": "1 0.8392156862745098 0.23529411764705882"
+			},
+			"ballcolorjoint": {
+				"condition": "autotheme.value == 0",
+				"index": 19,
+				"order": 119,
+				"text": "Joint Ball Color",
+				"type": "color",
+				"value": "0.6666666666666666 0.6941176470588235 0.7294117647058823"
+			},
+			"ballcolortip": {
+				"condition": "autotheme.value == 0",
+				"index": 20,
+				"order": 120,
+				"text": "Tip Ball Color",
+				"type": "color",
+				"value": "0.8627450980392157 0.8941176470588236 0.9254901960784314"
+			},
+			"trace1slow": {
+				"condition": "autotheme.value == 0",
+				"index": 21,
+				"order": 121,
+				"text": "Trace 1 Slow Color",
+				"type": "color",
+				"value": "0.4235294117647059 0.9647058823529412 1"
+			},
+			"trace1mid": {
+				"condition": "autotheme.value == 0",
+				"index": 22,
+				"order": 122,
+				"text": "Trace 1 Mid Color",
+				"type": "color",
+				"value": "0.4627450980392157 0.6666666666666666 1"
+			},
+			"trace1fast": {
+				"condition": "autotheme.value == 0",
+				"index": 23,
+				"order": 123,
+				"text": "Trace 1 Fast Color",
+				"type": "color",
+				"value": "0.8 0.32941176470588235 1"
+			},
+			"trace2slow": {
+				"condition": "autotheme.value == 0",
+				"index": 24,
+				"order": 124,
+				"text": "Trace 2 Slow Color",
+				"type": "color",
+				"value": "0.4823529411764706 1 0.48627450980392156"
+			},
+			"trace2mid": {
+				"condition": "autotheme.value == 0",
+				"index": 25,
+				"order": 125,
+				"text": "Trace 2 Mid Color",
+				"type": "color",
+				"value": "1 0.8392156862745098 0.3764705882352941"
+			},
+			"trace2fast": {
+				"condition": "autotheme.value == 0",
+				"index": 26,
+				"order": 126,
+				"text": "Trace 2 Fast Color",
+				"type": "color",
+				"value": "1 0.3215686274509804 0.2823529411764706"
+			},
+			"schemecolor": {
+				"order": 127,
+				"text": "Scheme Color",
+				"type": "color",
+				"value": "0 0 0",
+				"index": 27
+			}
+		}
+	},
+	"preview": "preview.jpg",
+	"ratingsex": "none",
+	"ratingviolence": "none",
+	"snapshotformat": -1,
+	"snapshotoverlay": "",
+	"tags": [
+		"Unspecified"
+	],
+	"title": "Wallpaper Double Pendulum",
+	"type": "web",
+	"version": 0
+}
