@@ -29,7 +29,7 @@ The project includes source and a separate browser test launcher.
 
 ### Use as a Wallpaper Engine wallpaper
 
-1. Download `wallpaper` folder via [the Release](releases/latest).
+1. Download `wallpaper` folder via [the Release](/cptjerry/wallpaper-double-pendulum/releases/latest).
 2. Open Wallpaper Engine's wallpaper editor and import **`wallpaper/index.html`** with [the official instruction](https://docs.wallpaperengine.io/en/web/first/gettingstarted.html).
 3. Adjust the wallpaper's properties in Wallpaper Engine.
 
